@@ -19,7 +19,7 @@ public class CSVParser : MonoBehaviour
 
         while (reader.Peek() > -1)
         {
-            var line = reader.ReadLine();
+            var line = reader.ReadLine().Trim(' ');
             var delimited = line.Split(',');
             var commandName = delimited[0];
             var args = delimited.Skip(1);

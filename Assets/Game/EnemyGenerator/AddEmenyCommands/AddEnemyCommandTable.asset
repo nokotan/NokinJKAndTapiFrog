@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5300045bf58055444843b3a565dde8f4, type: 3}
-  m_Name: Commands
+  m_Name: AddEnemyCommandTable
   m_EditorClassIdentifier: 
   Entries:
-  - CommandName: wait
-    Task: {fileID: 11400000, guid: 0c66c65db02c63840b6067cbaa81fbee, type: 2}
-  - CommandName: adds
-    Task: {fileID: 11400000, guid: 1b6b6ffbac88a5145b8a57d3c87133f8, type: 2}
-  - CommandName: adda
-    Task: {fileID: 11400000, guid: df75f8062d9cb8943b49b891135ba307, type: 2}
+  - CommandName: pin
+    Task: {fileID: 11400000, guid: b318b1a2a3f261d44bee227277f1c237, type: 2}
+  - CommandName: tap
+    Task: {fileID: 11400000, guid: af153b4270bd39e45b48703f8ff071c5, type: 2}
