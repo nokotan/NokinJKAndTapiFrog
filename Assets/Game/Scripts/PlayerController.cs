@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float minPositionY = -3.5f;
     [SerializeField] float maxPositionY = 4.5f;
 
+    [SerializeField] float minPositionX = -7.5f;
+    [SerializeField] float maxPositionX = -1.5f;
+
+
+
     BoxCollider2D boxCollider;
 
     // Start is called before the first frame update
@@ -48,6 +53,26 @@ public class PlayerController : MonoBehaviour
             newPosition.y = Mathf.Clamp(newPosition.y, minPositionY, maxPositionY);
             transform.position = newPosition;
         }
+
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            Vector3 newPosition = transform.position + new Vector3(1, 0);
+            newPosition.x = Mathf.Clamp(newPosition.x, minPositionX, maxPositionX);
+            transform.position = newPosition;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            Vector3 newPosition = transform.position + new Vector3(-1, 0);
+            newPosition.x = Mathf.Clamp(newPosition.x, minPositionX, maxPositionX);
+            transform.position = newPosition;
+        }
+
+
+
+
+
+
 
         foreach (var frogs in GetOverlappedFrogs())
         {
