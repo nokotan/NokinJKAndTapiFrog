@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: AddAsyncTask
+  m_EditorClassIdentifier: Assembly-CSharp::AttackTask
+  enemies: {fileID: 11400000, guid: 0c8638421c1f2ec459d28c2a4425b62e, type: 2}
+  positions: {fileID: 11400000, guid: 4d9af19cf44815146a51e5d998f70b93, type: 2}
+  waitTime: 0

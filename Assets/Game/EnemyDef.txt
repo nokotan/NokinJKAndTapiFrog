@@ -1,0 +1,5 @@
+adda,pin,1,
+adda,tap,1,
+wait,l,
+adds,pin,1,
+wait,s,
