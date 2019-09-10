@@ -5,7 +5,7 @@ using UnityEngine;
 public class FrogGenerator : MonoBehaviour
 {
     [SerializeField] GameObject[] prefabsToInstantiate;
-    [SerializeField] int positionRange = 8;
+     int positionRange = 4;
     [SerializeField] float InstantiateInterval = 3.0f;
 
     void RandomInstantiate()
@@ -29,6 +29,7 @@ public class FrogGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        positionRange = 4;
         StartCoroutine(InstantiateRoutine());
     }
 }
