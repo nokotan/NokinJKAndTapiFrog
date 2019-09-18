@@ -14,6 +14,7 @@ public class TitleSceneManagement : SceneManagement
         if (Input.GetButtonDown("Submit"))
         {
             ChangeScene();
+            GetComponent<AudioSource>().Play();
         }
     }
 }

@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "CommandTask/CreateWaitTask")]
-public class WaitTask : CommandTask
+public class WaitTask : MonoBehaviour
 {
-    [SerializeField] float smallWaitTime = 1.0f;
+    [SerializeField] float smallWaitTime = 2.0f;
     [SerializeField] float mediumWaitTime = 3.0f;
     [SerializeField] float largeWaitTime = 5.0f;
 
     Dictionary<string, float> waitTimes;
 
-    void OnEnable()
+    void Start()
     {
         waitTimes = new Dictionary<string, float>()
         {
@@ -24,7 +23,7 @@ public class WaitTask : CommandTask
         };
     }
 
-    public override IEnumerator DoCommand(string[] args)
+    public IEnumerator DoCommand(string[] args)
     {
         if (waitTimes.ContainsKey(args[0]))
         {
