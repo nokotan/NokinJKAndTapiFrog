@@ -13,14 +13,9 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(SceneName);
     }
 
-    public void ChangeScene(string sceneName)
+    public virtual void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     protected void Update()
