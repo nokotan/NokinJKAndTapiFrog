@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RuntimeInstantiator/CreateTable")]
+[CreateAssetMenu(menuName = "RuntimeInstantiator/CreateTable", fileName = "InstantiateOnOlayerLaunch/InstantiateTable")]
 public class RuntimeInstantiator : ScriptableObject
 {
     [SerializeField]
@@ -11,12 +11,11 @@ public class RuntimeInstantiator : ScriptableObject
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnPlayerLaunch()
     {
-        foreach (var instantiator in Resources.FindObjectsOfTypeAll<RuntimeInstantiator>())
+        var instantiator = Resources.Load("InstantiateTable") as RuntimeInstantiator;
+
+        foreach (var prefab in instantiator.prefabs)
         {
-            foreach(var prefab in instantiator.prefabs)
-            {
-                GameObject.Instantiate(prefab);
-            }
-        }      
+            DontDestroyOnLoad(Instantiate(prefab));
+        }
     }
 }

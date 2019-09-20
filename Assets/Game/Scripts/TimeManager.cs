@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
+    public Text timer;
+    public AudioSource clear;
     [Serializable]
     public class OnTickHandler : UnityEvent<string>
     {
@@ -22,7 +25,7 @@ public class TimeManager : MonoBehaviour
     OnTickHandler OnTick;
 
     bool onTimeOverInvoked;
-
+    
     public float LeftTime
     {
         get
@@ -30,7 +33,7 @@ public class TimeManager : MonoBehaviour
             return Mathf.Max(timeLimit - elapsedTime, 0.0f);
         }
     }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +45,8 @@ public class TimeManager : MonoBehaviour
         {
             OnTimeOver.Invoke();
             onTimeOverInvoked = true;
+            CrossSceneAudioPlayer.StopBGM();
+            clear.Play();
         }
 
         int currentLeftTime = (int)LeftTime;
@@ -49,6 +54,8 @@ public class TimeManager : MonoBehaviour
         if (previousLeftTime != currentLeftTime)
         {
             OnTick.Invoke(currentLeftTime.ToString());
+            
         }
+        timer.text = currentLeftTime.ToString();
     }
 }

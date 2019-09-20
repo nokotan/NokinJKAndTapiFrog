@@ -25,7 +25,7 @@ public class CSVParser : MonoBehaviour
             // 1行ずつ順番に処理していく
 
             // テキストファイルから1行読み取り、空白を取り除く
-            var line = reader.ReadLine().Trim(' ');
+            var line = reader.ReadLine().Replace(" ", "");
             // ',' で分割する。
             // 例えば "adda,pin,6" という文字列を、[ "adda", "pin", "6" ] といった文字列の配列に変換し、delimited に保存する
             var delimited = line.Split(',');
@@ -63,6 +63,11 @@ public class CSVParser : MonoBehaviour
     public void StartEnemyGenerating()
     {
         StartCoroutine(EnemyInstantiateRoutine());
+    }
+
+    public void StopEnemyGenerating()
+    {
+        StopAllCoroutines();
     }
 
     // Start is called before the first frame update

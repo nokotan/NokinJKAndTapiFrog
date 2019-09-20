@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Vector3 newPosition = transform.position + new Vector3(0, -1);

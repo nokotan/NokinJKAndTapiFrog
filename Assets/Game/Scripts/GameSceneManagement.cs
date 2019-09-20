@@ -15,8 +15,8 @@ public class GameSceneManagement : SceneManagement
 
     public override void ChangeScene(string sceneName)
     {
-        base.ChangeScene(sceneName);
         CrossSceneAudioPlayer.StopBGM();
+        base.ChangeScene(sceneName);
     }
 
     public void ReloadScene()

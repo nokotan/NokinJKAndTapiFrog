@@ -69,8 +69,7 @@ public class PinsetController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, direction2, speed);
             if (i == 1)
             {
-                // GetComponent<AudioSource>().Play();
-                CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
+                GetComponent<AudioSource>().Play();
             }
             yield return null;
         }

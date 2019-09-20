@@ -14,7 +14,8 @@ public class TitleSceneManagement : SceneManagement
         if (Input.GetButtonDown("Submit"))
         {
             ChangeScene();
-            GetComponent<AudioSource>().Play();
+            // GetComponent<AudioSource>().Play();
+            CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
         }
     }
 }

@@ -9,14 +9,12 @@ public abstract class SingletonMonoBehaviour <T> : MonoBehaviour where T : Singl
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = (T)this;
-        }
-        else
+        if (instance != null)
         {
             Debug.LogWarning("複数のインスタンスがあるみたいです");
         }
+
+        instance = (T)this;
 
         OnAwake();
     }

@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2990992cef1740c44b679e8687bbdafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Game
+  SceneName: tutorial

@@ -10,7 +10,7 @@ public class SceneManagement : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(SceneName);
+        ChangeScene(SceneName);
     }
 
     public virtual void ChangeScene(string sceneName)
@@ -20,7 +20,7 @@ public class SceneManagement : MonoBehaviour
 
     protected void Update()
     {
-        if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.D))
         {
             ChangeScene("Title");
         }

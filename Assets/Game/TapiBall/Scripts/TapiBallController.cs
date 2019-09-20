@@ -41,7 +41,8 @@ public class TapiBallController : MonoBehaviour
             }
             if (count == 1)
             {
-                GetComponent<AudioSource>().Play();
+                // GetComponent<AudioSource>().Play();
+                CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
             }
             else if (count == 2)
             {
@@ -73,7 +74,8 @@ public class TapiBallController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Destroy(gameObject);
+            // 無敵モードでタピオカボールを途中で消すとEnemyGereratorの動作が停止してしまうので終点につくまで消さないようにしている
+            // Destroy(gameObject);
         }
     }
 }

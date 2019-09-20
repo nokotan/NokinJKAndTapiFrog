@@ -15,14 +15,16 @@ public class NewPlayerController : MonoBehaviour
     public Sprite FrogOnRCeiling;
     public Sprite FrogOnCeiling;
     public Sprite FrogOnLCeiling;
-    
+
+    AnalogInput input;
     
 
     // Start is called befores the first frame update
     void Start()
     {
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        
+
+        input = GetComponent<AnalogInput>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class NewPlayerController : MonoBehaviour
         
     
         //移動の処理(左回転)
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (input.GetKeyDown(KeyCode.RightArrow))
         {
             GetComponent<AudioSource>().Play();
                 
@@ -71,7 +73,7 @@ public class NewPlayerController : MonoBehaviour
             }
         }
         //移動（右回転）
-       else if (Input.GetKeyDown(KeyCode.LeftArrow))
+       else if (input.GetKeyDown(KeyCode.LeftArrow))
         {
             GetComponent<AudioSource>().Play();
             if (pos.x == range)
@@ -176,6 +178,7 @@ public class NewPlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         OnDeath.Invoke();
+        
         if (collision.tag == "tapioka")
         {
             Debug.Log("衝突しました");
