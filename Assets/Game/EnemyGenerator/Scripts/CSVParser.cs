@@ -48,15 +48,17 @@ public class CSVParser : MonoBehaviour
             }
             else if (commandName == "adda")
             {
-                yield return enemyActionTask.DoCommand(args);
+                // yield return enemyActionTask.DoCommand(args);
+                StartCoroutine(enemyActionTask.DoCommand(args));
             }
             else if (commandName == "adds")
             {
-                yield return new WaitForSeconds(1.0f);
                 yield return enemyActionTask.DoCommand(args);
+                // yield return new WaitForSeconds(1.0f);
             }
         }
     }
+
 
     public void StartEnemyGenerating()
     {

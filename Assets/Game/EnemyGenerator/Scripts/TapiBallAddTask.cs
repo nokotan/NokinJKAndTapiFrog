@@ -14,7 +14,7 @@ public class TapiBallAddTask : MonoBehaviour
     {
         int positionIndex = Convert.ToInt32(args[0]) - 1;
 
-        GameObject.Instantiate(prefab, initialPositions[positionIndex].position, initialPositions[positionIndex].rotation);
-        yield break;
+        var instantiatedObject = GameObject.Instantiate(prefab, initialPositions[positionIndex].position, initialPositions[positionIndex].rotation);
+        yield return instantiatedObject.GetComponent<TapiBallController>().StartMoveRoutine();
     }
 }

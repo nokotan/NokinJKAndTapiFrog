@@ -10,8 +10,6 @@ public class PinsetMoveTask : MonoBehaviour
     public IEnumerator DoCommand(string[] args)
     {
         int positionIndex = Convert.ToInt32(args[0]) - 1;
-
-        StartCoroutine(pinsets[positionIndex].Move());
-        yield break;
+        yield return pinsets[positionIndex].Move();
     }
 }

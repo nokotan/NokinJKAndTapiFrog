@@ -10,7 +10,7 @@ public class TapiBallController : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float waitTimeForAnimation = 1.0f;
 
-    public IEnumerator MoveRoutine()
+    IEnumerator MoveRoutine()
     {
         var InitialPosition = transform.position;
         int count=0;
@@ -49,14 +49,19 @@ public class TapiBallController : MonoBehaviour
             }
             yield return new WaitForSeconds(waitTimeForAnimation);
         }
+
+        Destroy(gameObject);
     }
 
-    
+    public IEnumerator StartMoveRoutine()
+    {
+        yield return MoveRoutine();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MoveRoutine());
+        // StartCoroutine(StartMoveRoutine());
     }
 
     // Update is called once per frame
