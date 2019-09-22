@@ -2159,7 +2159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad8d6ef3f390bb43a855804b785f96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Title
+  SceneName: Result
   mainBGM: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
 --- !u!114 &1081084484
 MonoBehaviour:
@@ -2227,6 +2227,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1177795081}
         m_MethodName: StopAllCoroutines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1081084483}
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

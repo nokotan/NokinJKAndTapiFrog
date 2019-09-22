@@ -4,16 +4,8 @@ using UnityEngine;
 
 #pragma warning disable 108
 
-public class TitleSceneManagement : SceneManagement
+public class ResultSceneManagement : SceneManagement
 {
-    [SerializeField] AudioClip mainBGM;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        CrossSceneAudioPlayer.ChangeBGM(mainBGM);
-    }
-
     // Update is called once per frame
     void Update()
     {
