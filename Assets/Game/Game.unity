@@ -899,6 +899,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &525129778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525129771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359de254a4910bf4fa0dbe3495198151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTable: {fileID: 11400000, guid: 33c38b3a0ca8e9841bf8611e5f490ca9, type: 2}
+  eventName: PlayerDefeted
 --- !u!1 &528992186
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,12 +996,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &580924134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7123936560884620784, guid: e456c66d49b002849aacaf14237dcee4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1783441068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &643422235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6449523989508580361, guid: 44684c8069ec4834f9c1dc0bbee39d7d,
@@ -1800,7 +1808,7 @@ PrefabInstance:
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
@@ -1811,7 +1819,7 @@ PrefabInstance:
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
@@ -1822,26 +1830,26 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 580924134}
+      objectReference: {fileID: 1243543498}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: SetSelectedGameObject
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
@@ -1857,22 +1865,22 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1243543498}
+      objectReference: {fileID: 1081084483}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetSelectedGameObject
+      value: ReloadScene
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1800740796}
+      objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1882,27 +1890,27 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1243543498}
+      objectReference: {fileID: 1081084483}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1243543498}
+      objectReference: {fileID: 1081084483}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetSelectedGameObject
+      value: ReloadScene
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1800740796}
+      objectReference: {fileID: 0}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -1982,7 +1990,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1800740796}
     - target: {fileID: 3905227644309049959, guid: bbafdb6d2d6397e47b2a4ed3e853cc76,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -2125,6 +2133,7 @@ GameObject:
   - component: {fileID: 1081084484}
   - component: {fileID: 1081084486}
   - component: {fileID: 1081084487}
+  - component: {fileID: 1081084488}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2365,6 +2374,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1081084488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081084481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644fd6f4620ca9c4988e9d511543e25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTable: {fileID: 11400000, guid: 33c38b3a0ca8e9841bf8611e5f490ca9, type: 2}
+  eventName: PlayerDefeted
+  onEventReceived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1081084483}
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1164119803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6449523990249721921, guid: 44684c8069ec4834f9c1dc0bbee39d7d,
