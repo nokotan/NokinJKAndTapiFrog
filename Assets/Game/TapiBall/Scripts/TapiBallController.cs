@@ -56,7 +56,7 @@ public class TapiBallController : MonoBehaviour
 
     public IEnumerator StartMoveRoutine()
     {
-        yield return MoveRoutine();
+        return new CustomCoroutine(this, MoveRoutine());
     }
 
     // Start is called before the first frame update
@@ -75,7 +75,7 @@ public class TapiBallController : MonoBehaviour
         if (collision.tag == "Player")
         {
             // 無敵モードでタピオカボールを途中で消すとEnemyGereratorの動作が停止してしまうので終点につくまで消さないようにしている
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
