@@ -8,7 +8,7 @@ using UnityEngine;
 public class CSVParser : MonoBehaviour
 {
     [SerializeField]
-    TextAsset textAsset;
+    string textAsset;
 
     [SerializeField]
     WaitTask waitTask;
@@ -16,9 +16,23 @@ public class CSVParser : MonoBehaviour
     [SerializeField]
     EnemyActionTask enemyActionTask;
 
+    [System.Serializable]
+    class EnemyGeneratingConfig
+    {
+        public string FilePath;
+    }
+
+    [System.Serializable]
+    class Config
+    {
+        public EnemyGeneratingConfig EnemyGenerating;
+    }
+
     IEnumerator EnemyInstantiateRoutine()
     {
-        var reader = new StringReader(Encoding.UTF8.GetString(textAsset.bytes));
+        var config = JsonUtility.FromJson<Config>(File.ReadAllText($"{Application.streamingAssetsPath}/{textAsset}", Encoding.UTF8));
+
+        var reader = new StreamReader($"{Application.streamingAssetsPath}/{config.EnemyGenerating.FilePath}");
 
         while (reader.Peek() > -1)
         {
