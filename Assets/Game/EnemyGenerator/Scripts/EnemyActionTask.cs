@@ -15,11 +15,15 @@ public class EnemyActionTask : MonoBehaviour
 
         if (enemyName == "tap")
         {
-            yield return tapiBallAddTask.DoCommand(leftArgs);
+            return tapiBallAddTask.DoCommand(leftArgs);
         }
         else if (enemyName == "pin")
         {
-            yield return pinsetMoveTask.DoCommand(leftArgs);
+            return pinsetMoveTask.DoCommand(leftArgs);
+        }
+        else
+        {
+            return null;
         }
     }
 }
