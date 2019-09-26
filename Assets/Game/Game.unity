@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297113e63c8b5684bb0044ed0b015413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textAsset: {fileID: 4900000, guid: 141bccb9e0c12cc46b0c1abe202ea419, type: 3}
+  textAsset: Config.json
   waitTask: {fileID: 987685835}
   enemyActionTask: {fileID: 987685832}
 --- !u!1 &1179475752 stripped
