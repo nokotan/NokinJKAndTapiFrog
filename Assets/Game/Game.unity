@@ -926,7 +926,7 @@ MonoBehaviour:
   timer: {fileID: 1967348091}
   clear: {fileID: 1553847439}
   elapsedTime: 0
-  timeLimit: 60
+  timeLimit: 30
   OnTimeOver:
     m_PersistentCalls:
       m_Calls:
