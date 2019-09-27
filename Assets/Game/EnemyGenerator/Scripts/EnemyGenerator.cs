@@ -33,18 +33,21 @@ public class EnemyGenerator : MonoBehaviour
             // それだと CSVParser の責任が大きくなりすぎるのであえて別のファイルで書く
             // (QGJ程度の短期制作であれば直に書いたほうが楽だが、長期制作であれば分けておくことで
             // 何か変更をかけるときに1つの肥大化したファイルを永遠と探さなくて済む)
-            yield return waitTask.DoCommand(args);
+            return waitTask.DoCommand(args);
         }
         else if (commandName == "adda")
         {
             // yield return enemyActionTask.DoCommand(args);
             StartCoroutine(enemyActionTask.DoCommand(args));
+            return null;
         }
         else if (commandName == "adds")
         {
-            yield return enemyActionTask.DoCommand(args);
+           　return enemyActionTask.DoCommand(args);
             // yield return new WaitForSeconds(1.0f);
         }
+
+        return null;
     }
 
     public IEnumerator ExecuteCommand(string command)

@@ -546,6 +546,22 @@ MonoBehaviour:
   SceneName: Result
   SubSceneName: SubGame
   mainBGM: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
+  OnSubSceneLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1081084489}
+        m_MethodName: RestartEnemyGenerating
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1081084484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,7 +587,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textAsset: Config.json
-  enemyActionTask: {fileID: 0}
 --- !u!1 &1243543496
 GameObject:
   m_ObjectHideFlags: 0

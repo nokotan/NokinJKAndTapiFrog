@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventTable: {fileID: 11400000, guid: 33c38b3a0ca8e9841bf8611e5f490ca9, type: 2}
-  eventName: PlayerDefeted
+  eventName: RestartRequired
 --- !u!1 &615029196
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManagement : SceneManagement
 {
     [SerializeField] string SubSceneName;
     [SerializeField] AudioClip mainBGM;
+
+    [SerializeField] UnityEvent OnSubSceneLoaded;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +18,14 @@ public class GameSceneManagement : SceneManagement
 
         if (!SceneManager.GetSceneByName(SubSceneName).isLoaded)
         {
-            SceneManager.LoadScene(SubSceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op =>
+            {
+                OnSubSceneLoaded.Invoke();
+            };
+        }
+        else
+        {
+            OnSubSceneLoaded.Invoke();
         }
     }
 
@@ -26,12 +36,13 @@ public class GameSceneManagement : SceneManagement
     }
 
     public void ReloadScene()
-    {
-        var op = SceneManager.UnloadSceneAsync(SubSceneName);
-
-        op.completed += opr =>
+    {     
+        SceneManager.UnloadSceneAsync(SubSceneName).completed += op1 =>
         {
-            SceneManager.LoadScene(SubSceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op2 =>
+            {
+                OnSubSceneLoaded.Invoke();
+            };
         };
     }
 }

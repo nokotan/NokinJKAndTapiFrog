@@ -12,9 +12,6 @@ public class CSVParser : MonoBehaviour
 
     int SkippedCommandsNum;
 
-    [SerializeField]
-    EnemyActionTask enemyActionTask;
-
     [System.Serializable]
     class EnemyGeneratingConfig
     {
@@ -82,6 +79,6 @@ public class CSVParser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartEnemyGenerating();
+        // StartEnemyGenerating();
     }
 }
