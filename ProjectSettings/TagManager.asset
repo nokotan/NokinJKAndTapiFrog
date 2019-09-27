@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Frog
   - Pinset
+  - tapioka
+  - GameOver
+  - EnemyGenerator
   layers:
   - Default
   - TransparentFX

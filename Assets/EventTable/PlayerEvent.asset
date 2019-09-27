@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - name: PlayerDefeted
+  - name: TimeOver
+  - name: RestartRequired
+  - name: ChangeSceneRequired

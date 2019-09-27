@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Game/Game.unity
     guid: 023816534bc952446859ec99dcac74f4
   - enabled: 1
+    path: Assets/Game/SubGame.unity
+    guid: d7552ed6079970c49b383439722df487
+  - enabled: 1
     path: Assets/Result/Result.unity
     guid: bfad8717a2ed26441a2990a5f90a595c
   m_configObjects: {}
