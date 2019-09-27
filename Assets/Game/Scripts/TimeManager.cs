@@ -33,7 +33,22 @@ public class TimeManager : MonoBehaviour
             return Mathf.Max(timeLimit - elapsedTime, 0.0f);
         }
     }
-   
+
+    public void ResetTimer()
+    {
+        elapsedTime = 0.0f;
+    }
+
+    public void StartTimer()
+    {
+        enabled = true;
+    }
+
+    public void StopTimer()
+    {
+        enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -7,6 +7,8 @@ public class TapiBallAddTask : MonoBehaviour
 {
     // タピオカボールのプレハブ
     [SerializeField] GameObject prefab;
+
+    [SerializeField] Transform instantiateParent;
     // 初期位置の配列。要素番号が敵の出現位置の番号と対応させる
     [SerializeField] Transform[] initialPositions;
 
@@ -14,7 +16,7 @@ public class TapiBallAddTask : MonoBehaviour
     {
         int positionIndex = Convert.ToInt32(args[0]) - 1;
 
-        var instantiatedObject = GameObject.Instantiate(prefab, initialPositions[positionIndex].position, initialPositions[positionIndex].rotation);
+        var instantiatedObject = GameObject.Instantiate(prefab, initialPositions[positionIndex].position, initialPositions[positionIndex].rotation, instantiateParent);
         yield return instantiatedObject.GetComponent<TapiBallController>().StartMoveRoutine();
     }
 }

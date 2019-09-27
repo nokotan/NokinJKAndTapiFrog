@@ -10,17 +10,18 @@ public class CSVParser : MonoBehaviour
     [SerializeField]
     TextAsset textAsset;
 
-    [SerializeField]
-    WaitTask waitTask;
+    int SkippedCommandsNum;
 
-    [SerializeField]
-    EnemyActionTask enemyActionTask;
-
-    IEnumerator EnemyInstantiateRoutine()
+    IEnumerator EnemyInstantiateRoutine(EnemyGenerator generator)
     {
         var reader = new StringReader(Encoding.UTF8.GetString(textAsset.bytes));
 
-        while (reader.Peek() > -1)
+        for (int i = 0; i < SkippedCommandsNum && reader.Peek() > -1; i++)
+        {
+            reader.ReadLine(); // 飛ばす
+        }
+
+        for (int i = 0; reader.Peek() > -1; i++)
         {
             // 1行ずつ順番に処理していく
 
@@ -32,42 +33,33 @@ public class CSVParser : MonoBehaviour
 
             // ここで、配列 delimited の0番目にはコマンド名が保存されている
             var commandName = delimited[0];
-            // delimited の1番目の後にはコマンドに対する引数が保存されている
-            // なので Skip (Linq拡張) を使って、配列 [ "adda", "pin", "6" ] から部分配列 [ "pin", "6" ] を作り、それを args に保存する
-            // ところで Skip 関数は先頭から n 個の要素を飛ばした部分配列を作る関数である
-            var args = delimited.Skip(1).ToArray();
+            
+            if (commandName == "cpnt")
+            {
+                SkippedCommandsNum = i;
+            }
 
-            // コマンドごとに異なる処理をしていく
-            if (commandName == "wait")
-            {
-                // ここに一定時間待つ処理を具体的に書いてしまってもいいが、
-                // それだと CSVParser の責任が大きくなりすぎるのであえて別のファイルで書く
-                // (QGJ程度の短期制作であれば直に書いたほうが楽だが、長期制作であれば分けておくことで
-                // 何か変更をかけるときに1つの肥大化したファイルを永遠と探さなくて済む)
-                yield return waitTask.DoCommand(args);
-            }
-            else if (commandName == "adda")
-            {
-                // yield return enemyActionTask.DoCommand(args);
-                StartCoroutine(enemyActionTask.DoCommand(args));
-            }
-            else if (commandName == "adds")
-            {
-                yield return enemyActionTask.DoCommand(args);
-                // yield return new WaitForSeconds(1.0f);
-            }
+            yield return generator.ExecuteCommand(line);
         }
     }
 
-
     public void StartEnemyGenerating()
     {
-        StartCoroutine(EnemyInstantiateRoutine());
+        var enemyGeneratorObject = GameObject.FindWithTag("EnemyGenerator");
+        var enemyGenerator = enemyGeneratorObject.GetComponent<EnemyGenerator>();
+
+        StartCoroutine(EnemyInstantiateRoutine(enemyGenerator));
     }
 
     public void StopEnemyGenerating()
     {
         StopAllCoroutines();
+    }
+
+    public void RestartEnemyGenerating()
+    {
+        StopEnemyGenerating();
+        StartEnemyGenerating();
     }
 
     // Start is called before the first frame update

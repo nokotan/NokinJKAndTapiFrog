@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManagement : SceneManagement
 {
+    [SerializeField] string SubSceneName;
     [SerializeField] AudioClip mainBGM;
 
     // Start is called before the first frame update
     void Start()
     {
         CrossSceneAudioPlayer.ChangeBGM(mainBGM);
+
+        if (!SceneManager.GetSceneByName(SubSceneName).isLoaded)
+        {
+            SceneManager.LoadScene(SubSceneName, LoadSceneMode.Additive);
+        }
     }
 
     public override void ChangeScene(string sceneName)
@@ -21,6 +27,11 @@ public class GameSceneManagement : SceneManagement
 
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        var op = SceneManager.UnloadSceneAsync(SubSceneName);
+
+        op.completed += opr =>
+        {
+            SceneManager.LoadScene(SubSceneName, LoadSceneMode.Additive);
+        };
     }
 }
