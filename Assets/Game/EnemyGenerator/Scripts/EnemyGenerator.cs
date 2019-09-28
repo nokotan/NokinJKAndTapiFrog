@@ -38,8 +38,7 @@ public class EnemyGenerator : MonoBehaviour
         else if (commandName == "adda")
         {
             // yield return enemyActionTask.DoCommand(args);
-            StartCoroutine(enemyActionTask.DoCommand(args));
-            return null;
+            return new CustomCoroutine(this, enemyActionTask.DoCommand(args));
         }
         else if (commandName == "adds")
         {
