@@ -5,7 +5,7 @@ using UnityEngine;
 public class TapiBallController : MonoBehaviour
 {
     [SerializeField] Vector3[] targetLocalPoints;
-    [SerializeField] float moveSpeed = 0.2f;
+    [SerializeField] float moveSpeed = 12f;
 
     [SerializeField] Animator animator;
     [SerializeField] float waitTimeForAnimation = 1.0f;
@@ -22,11 +22,12 @@ public class TapiBallController : MonoBehaviour
 
             while (true)
             {
+                var timeScaledMoveSpeed = Time.deltaTime * moveSpeed;
                 var moveDelta = nextPosition - transform.position;
                 var moveDirection = moveDelta.normalized;
                 var leftDintance = moveDelta.magnitude;
 
-                if (leftDintance <= moveSpeed)
+                if (leftDintance <= timeScaledMoveSpeed)
                 {
                     transform.position = nextPosition;
                     count++;
@@ -34,7 +35,7 @@ public class TapiBallController : MonoBehaviour
                 }
                 else
                 {
-                    transform.position += moveDirection * moveSpeed;
+                    transform.position += moveDirection * timeScaledMoveSpeed;
                 }
 
                 yield return null;

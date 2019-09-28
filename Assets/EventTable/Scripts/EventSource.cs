@@ -9,6 +9,13 @@ public class EventSource : MonoBehaviour
 
     public void Invoke()
     {
-        eventTable.Find(eventName)?.Invoke();
+        if (enabled)
+            eventTable.Find(eventName)?.Invoke();
+    }
+
+    // just for enabling "Enable Button" in inspector...
+    void Update()
+    {
+
     }
 }

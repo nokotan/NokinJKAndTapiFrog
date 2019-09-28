@@ -12,7 +12,8 @@ public class EventListener : MonoBehaviour
 
     void OnEventReceived()
     {
-        onEventReceived.Invoke();
+        if (enabled)
+            onEventReceived.Invoke();
     }
 
     void Awake()
@@ -23,5 +24,11 @@ public class EventListener : MonoBehaviour
     void OnDestroy()
     {
         eventTable.Find(eventName)?.RemoveEventHandler(OnEventReceived);
+    }
+
+    // just for enabling "Enable Button" in inspector...
+    void Update()
+    {
+        
     }
 }
