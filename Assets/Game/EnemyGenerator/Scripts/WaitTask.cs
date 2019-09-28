@@ -10,7 +10,7 @@ public class WaitTask : MonoBehaviour
 
     Dictionary<string, float> waitTimes;
 
-    void Start()
+    void Awake()
     {
         waitTimes = new Dictionary<string, float>()
         {
