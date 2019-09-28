@@ -17,7 +17,6 @@ public class NewPlayerController : MonoBehaviour
     public Sprite FrogOnLCeiling;
 
     AnalogInput input;
-    
 
     // Start is called befores the first frame update
     void Start()
@@ -175,20 +174,28 @@ public class NewPlayerController : MonoBehaviour
     [SerializeField]
     UnityEngine.Events.UnityEvent OnDeath;
 
+    [Header("Debug"), SerializeField]
+    bool isImmortal;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnDeath.Invoke();
-        
+#if DEBUG
+        if (!isImmortal)
+#endif
+        {
+            OnDeath.Invoke();
+        }
+
         if (collision.tag == "tapioka")
         {
             Debug.Log("衝突しました");
 
         }
-       else if (collision.tag == "Pinset")
+        else if (collision.tag == "Pinset")
         {
             Debug.Log("刺されました");
         }
-        
+       
     }
 
 }
