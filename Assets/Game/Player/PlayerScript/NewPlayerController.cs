@@ -194,6 +194,7 @@ public class NewPlayerController : MonoBehaviour
         else if (collision.tag == "Pinset")
         {
             Debug.Log("刺されました");
+            
         }
        
     }

@@ -32,9 +32,10 @@ public class PinsetController : MonoBehaviour
     public IEnumerator Move()
     {
         //一撃目
-
+        shake = false;
         //ピンセットの初期位置設定
         // Vector3 direction0 = new Vector3(-4f, 22f, 0f);
+
         Vector3 direction0 = new Vector3(x1, y1, 0f);
         for (int i = 0; i < 5; i++)
         {
