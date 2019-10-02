@@ -1,5 +1,9 @@
 {
     "EnemyGenerating" : {
         "FilePath" : "tap&pin.csv"
+    },
+    "GameSetting" : {
+        "TimeLimit" : 30,
+        "InitialZanki" : 10
     }
 }
