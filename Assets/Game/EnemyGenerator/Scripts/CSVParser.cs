@@ -53,12 +53,12 @@ public class CSVParser : MonoBehaviour
                 SkippedCommandsNum = i;
             }
 
-            var commandRoutine = generator.ExecuteCommand(line);
+            var commandRoutine = generator.ExecuteCommand(line, this);
 
             if (commandRoutine != null)
             {
                 //yield return commandRoutine;
-                yield return StartCoroutine(commandRoutine);
+                yield return commandRoutine(this);
             }
         }
     }
