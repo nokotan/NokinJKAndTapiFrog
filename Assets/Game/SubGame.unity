@@ -193,6 +193,7 @@ MonoBehaviour:
   y2: 4
   x3: -10
   y3: 4
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &64000401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -522,6 +523,7 @@ MonoBehaviour:
   y2: 4
   x3: 10
   y3: 4
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &284519485
 AudioSource:
   m_ObjectHideFlags: 0
@@ -661,6 +663,7 @@ MonoBehaviour:
   y2: 21
   x3: 4
   y3: 10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &381577421
 AudioSource:
   m_ObjectHideFlags: 0
@@ -800,6 +803,7 @@ MonoBehaviour:
   y2: 0
   x3: 10
   y3: 0
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &416460951
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1270,6 +1274,7 @@ MonoBehaviour:
   y2: 21
   x3: -4
   y3: 10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &643422238
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1428,6 +1433,7 @@ MonoBehaviour:
   y2: 0
   x3: -10
   y3: 0
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &729161848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2327,6 +2333,7 @@ MonoBehaviour:
   y2: -21
   x3: 0
   y3: -10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &1164119806
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2513,6 +2520,7 @@ MonoBehaviour:
   y2: -21
   x3: 4
   y3: -10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &1179475755
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3514,6 +3522,7 @@ MonoBehaviour:
   y2: -21
   x3: -4
   y3: -10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &1481633698
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3653,6 +3662,7 @@ MonoBehaviour:
   y2: -4
   x3: -10
   y3: -4
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &1694829612
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4245,6 +4255,7 @@ MonoBehaviour:
   y2: -4
   x3: 10
   y3: -4
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &1972104706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4426,6 +4437,7 @@ MonoBehaviour:
   y2: 21
   x3: 0
   y3: 10
+  PinsetReadySound: {fileID: 8300000, guid: c68c92e46b335c64ebf3681febe218e2, type: 3}
 --- !u!82 &2027099704
 AudioSource:
   m_ObjectHideFlags: 0

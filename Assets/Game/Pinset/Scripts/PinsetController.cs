@@ -16,7 +16,7 @@ public class PinsetController : MonoBehaviour
 
     public static bool shake = false;
 
-    
+    [SerializeField] AudioClip PinsetReadySound;
 
 
     // Start is called before the first frame update
@@ -55,7 +55,7 @@ public class PinsetController : MonoBehaviour
             if (i == 1)
             {
                 // GetComponent<AudioSource>().Play();
-                CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
+                CrossSceneAudioPlayer.PlaySE(PinsetReadySound);
                 GetComponent<Animator>().SetTrigger("StartShining");
             }
 
