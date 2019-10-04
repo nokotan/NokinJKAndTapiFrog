@@ -42,13 +42,23 @@ public class PinsetController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, direction0, speed);
             yield return null;
         }
+
         //2秒の待ち
-        yield return new WaitForSeconds(2.0f);
+        // yield return new WaitForSeconds(2.0f);
+        
         //初期動作　ピンセットが画面外から画面内に。
         //Vector3 direction1 = new Vector3(-4f, 21f, 0f);
         Vector3 direction1 = new Vector3(x2, y2, 0f);
+
         for (int i = 0; i < 5; i++)
         {
+            if (i == 1)
+            {
+                // GetComponent<AudioSource>().Play();
+                CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
+                GetComponent<Animator>().SetTrigger("StartShining");
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, direction1, speed);
             yield return null;
         }
