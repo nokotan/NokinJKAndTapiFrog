@@ -7,10 +7,21 @@ public class ZankiMarkerController : MonoBehaviour
 {
     [SerializeField] Image[] zankiMarkers;
 
-    // Update is called once per frame
+    [Header("Sprites")]
+    [SerializeField] Sprite NormalZankiMarker;
+    [SerializeField] Sprite DamagedZankiMarker;
+
+    // For enable support
     void Update()
     {
         
+    }
+
+    IEnumerator MarkerAnimationRoutine(Image image)
+    {
+        image.sprite = DamagedZankiMarker;
+        yield return new WaitForSeconds(1.0f);
+        image.enabled = false;
     }
 
     public void UpdateMarker(int remainsZanki)
@@ -19,7 +30,10 @@ public class ZankiMarkerController : MonoBehaviour
 
         for (int i = 0; i < zankiMarkers.Length; i++)
         {
-            zankiMarkers[i].enabled = i < remainsZanki;
+            if (zankiMarkers[i].enabled && remainsZanki <= i)
+            {
+                StartCoroutine(MarkerAnimationRoutine(zankiMarkers[i]));
+            }
         }
     }
 }
