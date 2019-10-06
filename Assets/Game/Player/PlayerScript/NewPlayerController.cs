@@ -189,12 +189,11 @@ public class NewPlayerController : MonoBehaviour
         if (collision.tag == "tapioka")
         {
             Debug.Log("衝突しました");
-
         }
         else if (collision.tag == "Pinset")
         {
             Debug.Log("刺されました");
-            
+            PinsetController.shake = false;
         }
        
     }
