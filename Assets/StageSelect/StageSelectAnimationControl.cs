@@ -7,7 +7,13 @@ public class StageSelectAnimationControl : MonoBehaviour
     [SerializeField] AnimationCurve animationCurve;
     [SerializeField] float animationDuration = 0.5f;
 
-    int selectedStageMax;
+    public int selectedStageMax
+    {
+        get
+        {
+            return transform.childCount;
+        }
+    }
 
     public bool isInAnimation { get; private set; } = false;
 
