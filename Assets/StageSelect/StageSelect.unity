@@ -219,10 +219,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 23921484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c23c42e2ce77a498305fa48e031aa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f695bbfd49ed524e99d93870ffe5fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: Game
+  BGM: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
 --- !u!4 &23921486
 Transform:
   m_ObjectHideFlags: 0
@@ -656,6 +657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73db92ae3f18c504ea61e0633b1d6680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FrogMoveSE: {fileID: 8300000, guid: a89a55c1625c5564283c501bc85849b0, type: 3}
+  SystemSE: {fileID: 8300000, guid: b7426b157ed7560408d78ce409792438, type: 3}
 --- !u!4 &696180087
 Transform:
   m_ObjectHideFlags: 0
