@@ -350,11 +350,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 50118918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359de254a4910bf4fa0dbe3495198151, type: 3}
+  m_Script: {fileID: 11500000, guid: f3a1451c24bcaac4fb2f5e55c3eb1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventTable: {fileID: 11400000, guid: 33c38b3a0ca8e9841bf8611e5f490ca9, type: 2}
   eventName: RestartRequired
+  delayedTime: 2
 --- !u!1 &528992186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,5 +1442,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6267327573297659067, guid: 316b29851c7c02c4ea0a0df7cb5c7286,
+        type: 3}
+      propertyPath: NormalZankiMarker
+      value: 
+      objectReference: {fileID: 21300000, guid: ed1e7d4c4e7a82f4d99f6500ba0021bb,
+        type: 3}
+    - target: {fileID: 6267327573297659067, guid: 316b29851c7c02c4ea0a0df7cb5c7286,
+        type: 3}
+      propertyPath: DamagedZankiMarker
+      value: 
+      objectReference: {fileID: 21300000, guid: 5c99bca5e2c35c84d95980e15bd47c60,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 316b29851c7c02c4ea0a0df7cb5c7286, type: 3}

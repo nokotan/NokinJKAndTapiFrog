@@ -30,11 +30,6 @@ public class Shaker : MonoBehaviour
             if (shake_intensity > 0 && Time.frameCount % 6 == 0)
             {
                 transform.position = originPosition + Random.insideUnitSphere * shake_intensity;
-               // transform.rotation = new Quaternion(
-                                   //              originRotation.x + Random.Range(-shake_intensity, shake_intensity) * 2f,
-                                     //            originRotation.y + Random.Range(-shake_intensity, shake_intensity) * 2f,
-                                       //          originRotation.z + Random.Range(-shake_intensity, shake_intensity) * 2f,
-                                         //        originRotation.w + Random.Range(-shake_intensity, shake_intensity) * 2f);
                 shake_intensity -= shake_decay;
             }
         }
@@ -42,7 +37,6 @@ public class Shaker : MonoBehaviour
         if (PinsetController.shake==false)
         {
             transform.position = originPosition;
-            //transform.rotation = originRotation;
             shake_intensity = coef_shake_intensity;
         }
     }
@@ -50,8 +44,6 @@ public class Shaker : MonoBehaviour
     public void Shake()
     {
         originPosition = transform.position;
-        //originRotation = transform.rotation;
         shake_intensity = coef_shake_intensity;
     }
-
 }

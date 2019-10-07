@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField]
     EnemyActionTask enemyActionTask;
 
-    IEnumerator EnemyInstantiateRoutine(string command)
+    Func<MonoBehaviour, YieldInstruction> EnemyInstantiateRoutine(string command)
     {
         // テキストファイルから1行読み取り、空白を取り除く
         var line = command.Replace(" ", "");
@@ -33,23 +34,26 @@ public class EnemyGenerator : MonoBehaviour
             // それだと CSVParser の責任が大きくなりすぎるのであえて別のファイルで書く
             // (QGJ程度の短期制作であれば直に書いたほうが楽だが、長期制作であれば分けておくことで
             // 何か変更をかけるときに1つの肥大化したファイルを永遠と探さなくて済む)
-            return waitTask.DoCommand(args);
+            return executor => executor.StartCoroutine(waitTask.DoCommand(args));
         }
         else if (commandName == "adda")
         {
             // yield return enemyActionTask.DoCommand(args);
-            return new CustomCoroutine(this, enemyActionTask.DoCommand(args));
+            return executor => {
+                executor.StartCoroutine(enemyActionTask.DoCommand(args));
+                return null;
+            };
         }
         else if (commandName == "adds")
         {
-           　return enemyActionTask.DoCommand(args);
+            return executor => executor.StartCoroutine(enemyActionTask.DoCommand(args));
             // yield return new WaitForSeconds(1.0f);
         }
 
-        return null;
+        return executor => null;
     }
 
-    public IEnumerator ExecuteCommand(string command)
+    public Func<MonoBehaviour, YieldInstruction> ExecuteCommand(string command, MonoBehaviour coroutineContext)
     {
         return EnemyInstantiateRoutine(command);
     }
