@@ -5,12 +5,12 @@
             "tap&pin1.csv",
             "tap&pin2.csv",
             "tap&pin3.csv",
-            "tap&pin.csv",
-            "tap&pin.csv"
+            "tap&pin4.csv",
+            "tap&pin5.csv"
         ]
     },
     "GameSetting" : {
-        "TimeLimit" : 45,
+        "TimeLimit" : 30,
         "InitialZanki" : 10
     }
 }
