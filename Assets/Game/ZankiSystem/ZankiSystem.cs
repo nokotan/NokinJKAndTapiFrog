@@ -11,7 +11,7 @@ public class ZankiSystem : MonoBehaviour
 
     }
 
-    [SerializeField] int InitialZanki;
+    int InitialZanki;
     [SerializeField] UnityEvent OnZankiBreak;
     [SerializeField] OnZankiDecreaseHandler OnZankiDecrease;
 
@@ -39,6 +39,7 @@ public class ZankiSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitialZanki = ConfigSystem.Instance.GameSetting.InitialZanki;
         RemainedZanki = InitialZanki;
     }
 

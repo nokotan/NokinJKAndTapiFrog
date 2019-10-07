@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("StageSelect");
             }
         }
     }

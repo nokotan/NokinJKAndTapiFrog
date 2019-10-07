@@ -1,9 +1,16 @@
 {
     "EnemyGenerating" : {
-        "FilePath" : "tap&pin.csv"
+        "FilePath" : "tap&pin.csv",
+        "Stages" : [
+            "tap&pin1.csv",
+            "tap&pin2.csv",
+            "tap&pin3.csv",
+            "tap&pin.csv",
+            "tap&pin.csv"
+        ]
     },
     "GameSetting" : {
-        "TimeLimit" : 30,
+        "TimeLimit" : 45,
         "InitialZanki" : 10
     }
 }

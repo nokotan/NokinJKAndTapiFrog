@@ -7,28 +7,17 @@ using UnityEngine;
 
 public class CSVParser : MonoBehaviour
 {
-    [SerializeField]
-    string textAsset;
-
     int SkippedCommandsNum;
-
-    [System.Serializable]
-    class EnemyGeneratingConfig
-    {
-        public string FilePath;
-    }
-
-    [System.Serializable]
-    class Config
-    {
-        public EnemyGeneratingConfig EnemyGenerating;
-    }
 
     IEnumerator EnemyInstantiateRoutine(EnemyGenerator generator)
     {
-        var config = JsonUtility.FromJson<Config>(File.ReadAllText($"{Application.streamingAssetsPath}/{textAsset}", Encoding.UTF8));
+        var config = ConfigSystem.Instance;
+        var stageList = config.EnemyGenerating.Stages;
+        var selectedStage = stageList[StageSelectControl.selectedStage];
 
-        var reader = new StreamReader($"{Application.streamingAssetsPath}/{config.EnemyGenerating.FilePath}");
+        var reader = new StreamReader($"{Application.streamingAssetsPath}/{selectedStage}");
+
+        Debug.Log($"Loading File {selectedStage}...");
 
         for (int i = 0; i < SkippedCommandsNum && reader.Peek() > -1; i++)
         {

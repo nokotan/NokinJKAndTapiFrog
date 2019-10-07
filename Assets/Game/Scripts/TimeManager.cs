@@ -17,8 +17,7 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField]
     float elapsedTime;
-    [SerializeField]
-    float timeLimit = 60.0f;
+    float timeLimit;
     [SerializeField]
     UnityEvent OnTimeOver;
     [SerializeField]
@@ -47,6 +46,11 @@ public class TimeManager : MonoBehaviour
     public void StopTimer()
     {
         enabled = false;
+    }
+
+    void Start()
+    {
+        timeLimit = ConfigSystem.Instance.GameSetting.TimeLimit;
     }
 
     // Update is called once per frame

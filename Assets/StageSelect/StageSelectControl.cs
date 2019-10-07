@@ -32,6 +32,12 @@ public class StageSelectControl : MonoBehaviour
                 animator.SetFocus(selectedStage + 1);
                 selectedStage++;
             }
+
+            if (Input.GetButtonDown("Submit"))
+            {
+                var manager = GameObject.Find("SceneManager");
+                manager?.GetComponent<SceneManagement>()?.ChangeScene();
+            }
         }   
     }
 }
