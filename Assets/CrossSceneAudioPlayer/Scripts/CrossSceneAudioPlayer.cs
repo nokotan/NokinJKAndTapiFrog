@@ -48,6 +48,9 @@ public class CrossSceneAudioPlayer : SingletonMonoBehaviour<CrossSceneAudioPlaye
 
     public static void PlaySE(AudioClip clip)
     {
-        Instance.seAudioPlayer.PlayOneShot(clip);
+        var audioPlayer = Instance.seAudioPlayer;
+
+        audioPlayer.clip = clip;
+        audioPlayer.Play();
     }
 }
