@@ -50,4 +50,22 @@ public class FrogDeathRecorder : MonoBehaviour
     {
         Debug.Log(CaptureRecordText());
     }
+
+    public void RestoreRecord(int index)
+    {
+        var recordText = database.GetEntry(index);
+        var recordEntries = JsonUtility.FromJson<RecordEntries>(recordText);
+        var recoders = Recorders;
+
+        foreach (var item in recordEntries.Records)
+        {
+            var recoder = recoders.First(r => r.GetRecorderName() == item.RecorderName);
+            recoder.RestoreObjectsFromRecordEntries(item.SerializedData);
+        }
+    }
+
+    public int GetRecordCount()
+    {
+        return database.GetEntriesCount();
+    }
 }
