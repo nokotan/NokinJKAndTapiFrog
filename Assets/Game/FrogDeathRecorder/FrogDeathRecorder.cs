@@ -19,8 +19,9 @@ public class FrogDeathRecorder : MonoBehaviour
     }
 
     [SerializeField] ObjectRecorderBase[] Recorders;
+    [SerializeField] FrogDeathDatabase database;
 
-    public string CaptureRecord()
+    string CaptureRecordText()
     {
         var recordEntries = Recorders.Select(rec => new RecordEntry()
         {
@@ -32,8 +33,13 @@ public class FrogDeathRecorder : MonoBehaviour
         return JsonUtility.ToJson(new RecordEntries() { Records = recordEntries });
     }
 
+    public void CaptureRecord()
+    {
+        database.AppendEntry(CaptureRecordText());
+    }
+
     public void TestCaptureRecord()
     {
-        Debug.Log(CaptureRecord());
+        Debug.Log(CaptureRecordText());
     }
 }
