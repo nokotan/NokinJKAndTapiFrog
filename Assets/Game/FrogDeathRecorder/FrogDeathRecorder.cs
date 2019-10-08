@@ -18,8 +18,16 @@ public class FrogDeathRecorder : MonoBehaviour
         public RecordEntry[] Records;
     }
 
-    [SerializeField] ObjectRecorderBase[] Recorders;
+    [SerializeField] GameObject RecordersObject;
     [SerializeField] FrogDeathDatabase database;
+
+    ObjectRecorderBase[] Recorders
+    {
+        get
+        {
+            return RecordersObject.GetComponentsInChildren<ObjectRecorderBase>();
+        }
+    }
 
     string CaptureRecordText()
     {
