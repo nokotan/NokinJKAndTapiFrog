@@ -21,8 +21,15 @@ public class ConfigSystem
         public int InitialZanki;
     }
 
+    [System.Serializable]
+    public class FrogDeathDatabaseConfig
+    {
+        public string FilePath;
+    }
+
     public EnemyGeneratingConfig EnemyGenerating;
     public GameConfig GameSetting;
+    public FrogDeathDatabaseConfig FrogDeathDatabase;
 
     static ConfigSystem m_Instance;
 
