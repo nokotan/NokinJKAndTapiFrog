@@ -9,12 +9,14 @@ public class CSVParser : MonoBehaviour
 {
     int SkippedCommandsNum;
 
+    public string selectedStage { get; private set; }
+
     IEnumerator EnemyInstantiateRoutine(EnemyGenerator generator)
     {
         var config = ConfigSystem.Instance;
         var stageList = config.EnemyGenerating.Stages;
-        var selectedStage = stageList[StageSelectControl.selectedStage - 1];
-
+        selectedStage = stageList[StageSelectControl.selectedStage - 1];
+        
         var reader = new StreamReader($"{Application.streamingAssetsPath}/{selectedStage}");
 
         Debug.Log($"Loading File {selectedStage}...");

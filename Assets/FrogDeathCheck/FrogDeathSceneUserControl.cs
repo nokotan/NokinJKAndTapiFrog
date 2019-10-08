@@ -8,6 +8,7 @@ public class FrogDeathSceneUserControl : MonoBehaviour
     [SerializeField] FrogDeathRecorder recoder;
     [SerializeField] int RestoredRecordIndex = 0;
 
+    [SerializeField] StageInfoRecorder stageInfo;
     [SerializeField] Text infoText;
 
     AnalogInput input;
@@ -23,8 +24,15 @@ public class FrogDeathSceneUserControl : MonoBehaviour
     {
         int recordCount = recoder.GetRecordCount();
 
+        foreach (var tapi in TapiBallRecorder.TapiBalls)
+        {
+            Destroy(tapi.gameObject);
+        }
+
         recoder.RestoreRecord(RestoredRecordIndex);
-        infoText.text = $"Record {RestoredRecordIndex + 1} / {recordCount}";
+        infoText.text = $"Record {RestoredRecordIndex + 1} / {recordCount}\n" +
+            $"StageFile : {stageInfo.stageInfo.StageFileName}\n" +
+            $"ElapsedTime : {stageInfo.stageInfo.ElapsedTime.ToString("F2")}";
     }
 
     // Update is called once per frame

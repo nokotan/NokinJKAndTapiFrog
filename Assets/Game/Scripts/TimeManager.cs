@@ -33,6 +33,14 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public float ElapsedTime
+    {
+        get
+        {
+            return elapsedTime;
+        }
+    }
+
     public void ResetTimer()
     {
         elapsedTime = 0.0f;
