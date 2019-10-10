@@ -50,13 +50,5 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
-    protected void Update()
-    {
-        if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.D))
-        {
-            ChangeScene("Title");
-        }
-    }
 }
 

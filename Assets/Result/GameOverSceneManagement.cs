@@ -14,8 +14,6 @@ public class GameOverSceneManagement : SceneManagement
     // Update is called once per frame
     void Update()
     {
-        base.Update();
-
         if (Input.GetButtonDown("Submit"))
         {
             ChangeScene();
