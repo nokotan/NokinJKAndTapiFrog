@@ -947,7 +947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c23c42e2ce77a498305fa48e031aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Title
+  m_NextSceneName: 
+  m_DependingScenes: []
 --- !u!4 &1796300621
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,7 +1017,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 3b8f5348796b9594797d58c185ab0646, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
