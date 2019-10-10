@@ -8,7 +8,7 @@ public class GameOverSceneManagement : SceneManagement
 {
     void Start()
     {
-        ClearCountManager.CreateInstance().IncrementTrialCount(StageSelectControl.selectedStage);
+        ClearCountManager.CreateInstance().IncrementTrialCount(StageSelectManager.Instance.selectedStageIndex);
     }
 
     // Update is called once per frame

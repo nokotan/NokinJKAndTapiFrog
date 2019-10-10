@@ -15,7 +15,7 @@ public class CSVParser : MonoBehaviour
     {
         var config = ConfigSystem.Instance;
         var stageList = config.EnemyGenerating.Stages;
-        selectedStage = stageList[StageSelectControl.selectedStage - 1];
+        selectedStage = stageList[StageSelectManager.Instance.selectedStageIndex - 1];
         
         var reader = new StreamReader($"{Application.streamingAssetsPath}/{selectedStage}");
 

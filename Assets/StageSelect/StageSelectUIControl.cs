@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageSelectControl : MonoBehaviour
+/// <summary>
+/// ステージセレクト画面のユーザーの入力をハンドリングし、各サブコンポーネントに伝令します
+/// </summary>
+public class StageSelectUIControl : MonoBehaviour
 { 
-    static public int selectedStage { get; private set; } = 1;
-
     [SerializeField] AudioClip SystemSE;
 
+    int selectedStage = 1;
     int selectedStageMax;
     StageSelectAnimationControl animator;
 
@@ -16,8 +18,18 @@ public class StageSelectControl : MonoBehaviour
     {     
         animator = GetComponentInChildren<StageSelectAnimationControl>();
         selectedStageMax = animator.selectedStageMax;
+    }
 
-        selectedStage = 1;
+    /// <summary>
+    /// StageSelectManager に選択したステージを登録して、Game シーンで読み取れるようにします。
+    /// </summary>
+    void SetStageIndexAndPath(int selectedStage)
+    {
+        var config = ConfigSystem.Instance;
+        var stageList = config.EnemyGenerating.Stages;
+
+        StageSelectManager.Instance.selectedStageIndex = selectedStage;
+        StageSelectManager.Instance.selectedStagePath = stageList[selectedStage];
     }
 
     // Update is called once per frame
@@ -38,8 +50,8 @@ public class StageSelectControl : MonoBehaviour
 
             if (Input.GetButtonDown("Submit"))
             {
-                var manager = GameObject.Find("SceneManager");
-                manager?.GetComponent<SceneManagement>()?.ChangeScene();
+                SetStageIndexAndPath(selectedStage);
+                StageSelectManager.Instance.SwitchSubScene("Game");
 
                 CrossSceneAudioPlayer.PlaySE(SystemSE);
             }

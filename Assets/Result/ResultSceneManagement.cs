@@ -8,7 +8,7 @@ public class ResultSceneManagement : SceneManagement
 {
     void Start()
     {
-        ClearCountManager.CreateInstance().IncrementClearAndTrialCount(StageSelectControl.selectedStage); 
+        ClearCountManager.CreateInstance().IncrementClearAndTrialCount(StageSelectManager.Instance.selectedStageIndex); 
     }
 
     // Update is called once per frame
