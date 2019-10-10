@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameCore/GameCore.unity
     guid: f70cf4edeec67ad4ca8e504015f9afc5
+  - enabled: 1
+    path: Assets/PVScene/DemoPlay.unity
+    guid: 8feb62baeb338714dbc465cb42f1cf88
   m_configObjects: {}

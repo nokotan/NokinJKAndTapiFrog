@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class TitleSceneManager : MonoBehaviour
 {
     [SerializeField] AudioClip mainBGM;
+    float elapsedTime;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,13 @@ public class TitleSceneManager : MonoBehaviour
 
             // GetComponent<AudioSource>().Play();
             CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
+        }
+
+        elapsedTime += Time.deltaTime;
+
+        if (elapsedTime > 30.0f)
+        {
+            SceneManager.LoadScene("DemoPlay");
         }
     }
 }
