@@ -119,8 +119,17 @@ public class StageSelectManager : SingletonMonoBehaviour<StageSelectManager>
             SceneManager.UnloadSceneAsync(subScene);
         }
 
-        SceneManager.LoadSceneAsync(newSceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(newSceneName, LoadSceneMode.Additive);
 
         subScene = SceneManager.GetSceneByName(newSceneName);
+    }
+
+    /// <summary>
+    /// GameCore シーンを削除してシーンを切り替えます。
+    /// </summary>
+    /// <param name="newSceneName">切り替える先のシーン</param>
+    public void SwitchScene(string newSceneName)
+    {
+        SceneManager.LoadScene(newSceneName);
     }
 }

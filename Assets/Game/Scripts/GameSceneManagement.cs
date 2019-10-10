@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManagement : SceneManagement
 {
+    [Header("Scene Specific")]
     [SerializeField] string SubSceneName;
     [SerializeField] AudioClip mainBGM;
 
+    /// <summary>
+    /// シーンの読み込みが完了したときに呼ばれる関数
+    /// </summary>
     [SerializeField] UnityEvent OnSubSceneLoaded;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// シーンの読み込みが終わったときに読み込まれます。
+    /// </summary>
     void Start()
     {
         CrossSceneAudioPlayer.ChangeBGM(mainBGM);
@@ -29,12 +35,18 @@ public class GameSceneManagement : SceneManagement
         }
     }
 
-    public override void ChangeScene(string sceneName)
+    /// <summary>
+    /// シーンが破棄されるときに呼び出されます。
+    /// </summary>
+    void OnDestroy()
     {
         CrossSceneAudioPlayer.StopBGM();
-        base.ChangeScene(sceneName);
+        SceneManager.UnloadSceneAsync(SubSceneName);
     }
 
+    /// <summary>
+    /// サブシーンを読み込みなおします。
+    /// </summary>
     public void ReloadScene()
     {     
         SceneManager.UnloadSceneAsync(SubSceneName).completed += op1 =>

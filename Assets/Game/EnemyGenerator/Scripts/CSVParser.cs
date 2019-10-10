@@ -13,10 +13,15 @@ public class CSVParser : MonoBehaviour
 
     IEnumerator EnemyInstantiateRoutine(EnemyGenerator generator)
     {
-        var config = ConfigSystem.Instance;
-        var stageList = config.EnemyGenerating.Stages;
-        selectedStage = stageList[StageSelectManager.Instance.selectedStageIndex - 1];
-        
+        selectedStage = StageSelectManager.Instance.selectedStagePath;
+
+#if DEBUG
+        if (string.IsNullOrEmpty(selectedStage))
+        {
+            selectedStage = ConfigSystem.Instance.EnemyGenerating.Stages[0];
+        }
+#endif
+
         var reader = new StreamReader($"{Application.streamingAssetsPath}/{selectedStage}");
 
         Debug.Log($"Loading File {selectedStage}...");

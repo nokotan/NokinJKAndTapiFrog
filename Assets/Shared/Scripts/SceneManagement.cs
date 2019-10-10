@@ -5,14 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    [SerializeField]
-    string SceneName;
+    /// <summary>
+    /// 遷移する先のシーン名
+    /// </summary>
+    [SerializeField] string m_NextSceneName;
 
-    public void ChangeScene()
+    /// <summary>
+    /// このシーンが依存しているシーン
+    /// </summary>
+    [SerializeField] string[] m_DependingScenes;
+
+    void Awake()
     {
-        ChangeScene(SceneName);
+        LoadDependingScenes();
     }
 
+    /// <summary>
+    /// 依存するシーンを読み込みます
+    /// </summary>
+    void LoadDependingScenes()
+    {
+        foreach (var sceneName in m_DependingScenes)
+        {
+            if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+            {
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            }
+        }
+    }
+
+    /// <summary>
+    /// NextSceneNameで指定したシーンを切り替えます。
+    /// </summary>
+    public void ChangeScene()
+    {
+        ChangeScene(m_NextSceneName);
+    }
+
+    /// <summary>
+    /// 指定したシーンへ切り替えます。
+    /// </summary>
+    /// <param name="sceneName"></param>
     public virtual void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

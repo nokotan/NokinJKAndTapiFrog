@@ -11,7 +11,7 @@
     },
     "GameSetting" : {
         "TimeLimit" : 30,
-        "InitialZanki" : 10
+        "InitialZanki" : 1
     },
     "FrogDeathDatabase" : {
         "FilePath" : "NotTracked/DeathRecord.json"
