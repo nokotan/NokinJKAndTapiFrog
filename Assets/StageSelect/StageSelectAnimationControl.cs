@@ -22,9 +22,11 @@ public class StageSelectAnimationControl : MonoBehaviour
         isInAnimation = true;
 
         var focusingChildIdx = focusingStageIdx - 1;
-        var initialPosition = transform.position;
-        var targetPosition = -transform.GetChild(focusingChildIdx).localPosition;
 
+        var targetTransform = transform.GetChild(focusingChildIdx);
+        var initialPosition = transform.position;
+        var targetPosition = -Vector3.Scale(targetTransform.localPosition, targetTransform.lossyScale);
+        
         var elapsedTime = 0.0f;
 
         while (elapsedTime <= animationDuration)

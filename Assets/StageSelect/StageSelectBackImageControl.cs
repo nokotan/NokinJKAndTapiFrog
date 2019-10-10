@@ -11,13 +11,23 @@ public class StageSelectBackImageControl : MonoBehaviour
     {
         if (Random.Range(0, 2) == 0)
         {
-            currentIndex = (currentIndex + 1) % backImages.Length;
+            MoveRight();
         }
         else
         {
-            currentIndex = (currentIndex + backImages.Length - 1) % backImages.Length;
+            MoveLeft();
         }
 
         GetComponent<SpriteRenderer>().sprite = backImages[currentIndex];
+    }
+
+    public void MoveLeft()
+    {
+        currentIndex = (currentIndex + backImages.Length - 1) % backImages.Length;
+    }
+
+    public void MoveRight()
+    {
+        currentIndex = (currentIndex + 1) % backImages.Length;
     }
 }
