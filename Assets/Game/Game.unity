@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad8d6ef3f390bb43a855804b785f96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NextSceneName: Clear
+  m_NextSceneName: Result
   m_DependingScenes:
   - GameCore
   SubSceneName: SubGame

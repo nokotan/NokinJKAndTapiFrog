@@ -752,5 +752,10 @@ PrefabInstance:
       propertyPath: mainBGM
       value: 
       objectReference: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
+    - target: {fileID: 1719625705954113908, guid: cca987a9b71a24a4c87058ee856256f3,
+        type: 3}
+      propertyPath: m_NextSceneName
+      value: tutorial
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca987a9b71a24a4c87058ee856256f3, type: 3}

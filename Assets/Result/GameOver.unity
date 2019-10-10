@@ -723,4 +723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afdd03eaeeae4d48aa1fbd407b4fdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Title
+  m_NextSceneName: Title
+  m_DependingScenes:
+  - GameCore

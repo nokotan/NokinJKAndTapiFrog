@@ -44,6 +44,11 @@ public class GameSceneManagement : SceneManagement
         SceneManager.UnloadSceneAsync(SubSceneName);
     }
 
+    public override void ChangeScene(string sceneName)
+    {
+        StageSelectManager.Instance.SwitchSubScene(sceneName);
+    }
+
     /// <summary>
     /// サブシーンを読み込みなおします。
     /// </summary>

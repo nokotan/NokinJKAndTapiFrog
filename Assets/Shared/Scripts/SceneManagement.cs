@@ -27,7 +27,7 @@ public class SceneManagement : MonoBehaviour
     {
         foreach (var sceneName in m_DependingScenes)
         {
-            if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+            if (!SceneManager.GetSceneByName(sceneName).IsValid())
             {
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
             }

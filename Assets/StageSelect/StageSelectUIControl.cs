@@ -29,7 +29,7 @@ public class StageSelectUIControl : MonoBehaviour
         var stageList = config.EnemyGenerating.Stages;
 
         StageSelectManager.Instance.selectedStageIndex = selectedStage;
-        StageSelectManager.Instance.selectedStagePath = stageList[selectedStage];
+        StageSelectManager.Instance.selectedStagePath = stageList[selectedStage - 1];
     }
 
     // Update is called once per frame

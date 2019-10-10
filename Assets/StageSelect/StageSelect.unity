@@ -222,7 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f695bbfd49ed524e99d93870ffe5fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Game
+  m_NextSceneName: Game
+  m_DependingScenes:
+  - GameCore
   BGM: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
 --- !u!4 &23921486
 Transform:

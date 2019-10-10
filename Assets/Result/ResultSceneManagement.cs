@@ -11,6 +11,11 @@ public class ResultSceneManagement : SceneManagement
         ClearCountManager.CreateInstance().IncrementClearAndTrialCount(StageSelectManager.Instance.selectedStageIndex); 
     }
 
+    public override void ChangeScene(string sceneName)
+    {
+        StageSelectManager.Instance.SwitchSubScene(sceneName);
+    }
+
     // Update is called once per frame
     void Update()
     {
