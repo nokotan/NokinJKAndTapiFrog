@@ -15,7 +15,7 @@ public class CSVParser : SingletonMonoBehaviour<CSVParser>
     {
         selectedStage = StageSelectManager.Instance.selectedStagePath;
 
-#if DEBUG
+#if DEBUG && false
         if (string.IsNullOrEmpty(selectedStage))
         {
             selectedStage = ConfigSystem.Instance.EnemyGenerating.Stages[0];

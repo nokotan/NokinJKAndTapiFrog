@@ -5,11 +5,13 @@ using UnityEngine;
 /// <summary>
 /// ステージセレクト画面のユーザーの入力をハンドリングし、各サブコンポーネントに伝令します
 /// </summary>
-public class StageSelectUIControl : MonoBehaviour
+public class StageSelectUIControl : SingletonMonoBehaviour<StageSelectUIControl>
 { 
-    int selectedStage = 1;
-    int selectedStageMax;
+    [SerializeField] int selectedStage = 1;
+    [SerializeField] int selectedStageMax;
     StageSelectAnimationControl animator;
+
+    public int SelectedStage => selectedStage;
 
     // Start is called before the first frame update
     void Start()
@@ -18,17 +20,7 @@ public class StageSelectUIControl : MonoBehaviour
         selectedStageMax = animator.selectedStageMax;
     }
 
-    /// <summary>
-    /// StageSelectManager に選択したステージを登録して、Game シーンで読み取れるようにします。
-    /// </summary>
-    void SetStageIndexAndPath(int selectedStage)
-    {
-        var config = ConfigSystem.Instance;
-        var stageList = config.EnemyGenerating.Stages;
 
-        StageSelectManager.Instance.selectedStageIndex = selectedStage;
-        StageSelectManager.Instance.selectedStagePath = stageList[selectedStage - 1];
-    }
 
     // Update is called once per frame
     void Update()
@@ -38,14 +30,12 @@ public class StageSelectUIControl : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") < -0.9f && selectedStage > 1)
             {
                 animator.SetFocus(selectedStage - 1);
-                selectedStage--;
-                SetStageIndexAndPath(selectedStage);
+                selectedStage--;               
             }
             else if (Input.GetAxisRaw("Horizontal") > 0.9f && selectedStage < selectedStageMax)
             {
                 animator.SetFocus(selectedStage + 1);
                 selectedStage++;
-                SetStageIndexAndPath(selectedStage);
             }
         }   
     }
