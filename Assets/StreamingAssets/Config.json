@@ -15,5 +15,8 @@
     },
     "FrogDeathDatabase" : {
         "FilePath" : "NotTracked/DeathRecord.json"
+    },
+    "ClearCountDatabase" : {
+        "FilePath" : "NotTracked/ClearCount.json"
     }
 }

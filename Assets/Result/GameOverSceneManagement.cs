@@ -4,11 +4,11 @@ using UnityEngine;
 
 #pragma warning disable 108
 
-public class ResultSceneManagement : SceneManagement
+public class GameOverSceneManagement : SceneManagement
 {
     void Start()
     {
-        ClearCountManager.CreateInstance().IncrementClearAndTrialCount(StageSelectControl.selectedStage); 
+        ClearCountManager.CreateInstance().IncrementTrialCount(StageSelectControl.selectedStage);
     }
 
     // Update is called once per frame

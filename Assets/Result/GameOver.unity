@@ -606,7 +606,8 @@ PrefabInstance:
       propertyPath: SceneName
       value: Title
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1719625705954113908, guid: cca987a9b71a24a4c87058ee856256f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cca987a9b71a24a4c87058ee856256f3, type: 3}
 --- !u!1 &1157248182 stripped
 GameObject:
@@ -710,3 +711,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1157248184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157248182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afdd03eaeeae4d48aa1fbd407b4fdbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: Title

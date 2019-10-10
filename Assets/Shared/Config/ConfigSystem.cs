@@ -27,9 +27,16 @@ public class ConfigSystem
         public string FilePath;
     }
 
+    [System.Serializable]
+    public class ClearCountDatabaseConfig
+    {
+        public string FilePath;
+    }
+
     public EnemyGeneratingConfig EnemyGenerating;
     public GameConfig GameSetting;
     public FrogDeathDatabaseConfig FrogDeathDatabase;
+    public ClearCountDatabaseConfig ClearCountDatabase;
 
     static ConfigSystem m_Instance;
 
