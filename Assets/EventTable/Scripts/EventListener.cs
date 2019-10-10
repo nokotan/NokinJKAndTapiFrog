@@ -10,7 +10,7 @@ public class EventListener : MonoBehaviour
 
     [SerializeField] UnityEvent onEventReceived;
 
-    void OnEventReceived()
+    protected virtual void OnEventReceived()
     {
         if (enabled)
             onEventReceived.Invoke();

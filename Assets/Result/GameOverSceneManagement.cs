@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 #pragma warning disable 108
 
-public class GameOverSceneManagement : SceneManagement
+public class GameOverSceneManagement : DependentSceneManager
 {
     void Start()
     {
@@ -16,7 +17,7 @@ public class GameOverSceneManagement : SceneManagement
     {
         if (Input.GetButtonDown("Submit"))
         {
-            ChangeScene();
+            SceneManager.LoadScene("Title");
             // GetComponent<AudioSource>().Play();
             CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
         }

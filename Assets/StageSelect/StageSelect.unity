@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NextSceneName: Game
-  m_DependingScenes:
-  - GameCore
+  m_DependingSceneName: GameCore
   BGM: {fileID: 8300000, guid: 9b76d29920ca6714ca23e1a32b145119, type: 3}
+  SystemSE: {fileID: 8300000, guid: b7426b157ed7560408d78ce409792438, type: 3}
 --- !u!4 &23921486
 Transform:
   m_ObjectHideFlags: 0
@@ -636,7 +636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73db92ae3f18c504ea61e0633b1d6680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SystemSE: {fileID: 8300000, guid: b7426b157ed7560408d78ce409792438, type: 3}
 --- !u!4 &696180087
 Transform:
   m_ObjectHideFlags: 0

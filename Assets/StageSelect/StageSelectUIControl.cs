@@ -7,8 +7,6 @@ using UnityEngine;
 /// </summary>
 public class StageSelectUIControl : MonoBehaviour
 { 
-    [SerializeField] AudioClip SystemSE;
-
     int selectedStage = 1;
     int selectedStageMax;
     StageSelectAnimationControl animator;
@@ -41,19 +39,13 @@ public class StageSelectUIControl : MonoBehaviour
             {
                 animator.SetFocus(selectedStage - 1);
                 selectedStage--;
+                SetStageIndexAndPath(selectedStage);
             }
             else if (Input.GetAxisRaw("Horizontal") > 0.9f && selectedStage < selectedStageMax)
             {
                 animator.SetFocus(selectedStage + 1);
                 selectedStage++;
-            }
-
-            if (Input.GetButtonDown("Submit"))
-            {
                 SetStageIndexAndPath(selectedStage);
-                StageSelectManager.Instance.SwitchSubScene("Game");
-
-                CrossSceneAudioPlayer.PlaySE(SystemSE);
             }
         }   
     }

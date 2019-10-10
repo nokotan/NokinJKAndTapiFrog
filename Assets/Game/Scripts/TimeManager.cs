@@ -5,23 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : SingletonMonoBehaviour<TimeManager>
 {
     public Text timer;
     public AudioSource clear;
-    [Serializable]
-    public class OnTickHandler : UnityEvent<string>
-    {
-
-    }
 
     [SerializeField]
     float elapsedTime;
     float timeLimit;
-    [SerializeField]
-    UnityEvent OnTimeOver;
-    [SerializeField]
-    OnTickHandler OnTick;
 
     bool onTimeOverInvoked;
     
@@ -70,19 +61,15 @@ public class TimeManager : MonoBehaviour
         
         if (elapsedTime >= timeLimit && !onTimeOverInvoked)
         {
-            OnTimeOver.Invoke();
             onTimeOverInvoked = true;
             CrossSceneAudioPlayer.StopBGM();
             clear.Play();
+
+            CSVParser.Instance.StopEnemyGenerating();
+            GameSceneManager.Instance.SwitchScene("Result");
         }
 
         int currentLeftTime = (int)LeftTime;
-
-        if (previousLeftTime != currentLeftTime)
-        {
-            OnTick.Invoke(currentLeftTime.ToString());
-            
-        }
         timer.text = currentLeftTime.ToString();
     }
 }

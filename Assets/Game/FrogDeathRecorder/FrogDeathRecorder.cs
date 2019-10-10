@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrogDeathRecorder : MonoBehaviour
+public class FrogDeathRecorder : SingletonMonoBehaviour<FrogDeathRecorder>
 {
     [System.Serializable]
     public class RecordEntry

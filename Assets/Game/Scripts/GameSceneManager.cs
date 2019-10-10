@@ -4,19 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameSceneManagement : SceneManagement
+/// <summary>
+/// ゲーム画面でのシーン制御を行います
+/// </summary>
+public class GameSceneManager : DependentSceneManager
 {
     [Header("Scene Specific")]
     [SerializeField] string SubSceneName;
     [SerializeField] AudioClip mainBGM;
 
     /// <summary>
-    /// シーンの読み込みが完了したときに呼ばれる関数
-    /// </summary>
-    [SerializeField] UnityEvent OnSubSceneLoaded;
-
-    /// <summary>
-    /// シーンの読み込みが終わったときに読み込まれます。
+    /// シーンの読み込みが終わったときに呼び出されます。
     /// </summary>
     void Start()
     {
@@ -26,12 +24,12 @@ public class GameSceneManagement : SceneManagement
         {
             SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op =>
             {
-                OnSubSceneLoaded.Invoke();
+                CSVParser.Instance.RestartEnemyGenerating();
             };
         }
         else
         {
-            OnSubSceneLoaded.Invoke();
+            CSVParser.Instance.RestartEnemyGenerating();
         }
     }
 
@@ -44,7 +42,7 @@ public class GameSceneManagement : SceneManagement
         SceneManager.UnloadSceneAsync(SubSceneName);
     }
 
-    public override void ChangeScene(string sceneName)
+    public override void SwitchScene(string sceneName)
     {
         StageSelectManager.Instance.SwitchSubScene(sceneName);
     }
@@ -58,8 +56,19 @@ public class GameSceneManagement : SceneManagement
         {
             SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op2 =>
             {
-                OnSubSceneLoaded.Invoke();
+                CSVParser.Instance.RestartEnemyGenerating();
             };
         };
+    }
+
+    /// <summary>
+    /// シーン中にある GameSceneManager を探してきます
+    /// </summary>
+    public static GameSceneManager Instance
+    {
+        get
+        {
+            return GameObject.FindObjectOfType<GameSceneManager>();
+        }
     }
 }

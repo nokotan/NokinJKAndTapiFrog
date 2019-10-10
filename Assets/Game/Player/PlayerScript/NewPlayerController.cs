@@ -19,8 +19,14 @@ public class NewPlayerController : MonoBehaviour
     [SerializeField] Sprite[] DamageFrogAnimation;
     bool isInDamageAnimation;
 
+    [SerializeField] AudioClip deathSE;
+
     AnalogInput input;
 
+    /// <summary>
+    /// カエルがダメージを負った時のアニメーションを再生するコルーチン
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DamageAnimationRoutine()
     {
         isInDamageAnimation = true;
@@ -31,7 +37,30 @@ public class NewPlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
         }
 
-        Destroy(gameObject);
+        MainSpriteRenderer.sprite = null;
+    }
+
+    /// <summary>
+    /// カエルがダメージを負ってからリスタートするまでのコルーチン
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FrogRestartRoutine()
+    {
+        // 操作不能にする
+        enabled = false;
+
+        CrossSceneAudioPlayer.PlaySE(deathSE);
+        CSVParser.Instance.StopEnemyGenerating();
+        TimeManager.Instance.StopTimer();
+        FrogDeathRecorder.Instance.CaptureRecord();
+        ZankiSystem.Instance.DecreaseZanki();
+
+        yield return new WaitForSeconds(2.0f);
+
+        GameSceneManager.Instance.ReloadScene();
+
+        TimeManager.Instance.ResetTimer();
+        TimeManager.Instance.StartTimer();
     }
 
     // Start is called befores the first frame update
@@ -192,9 +221,6 @@ public class NewPlayerController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    UnityEngine.Events.UnityEvent OnDeath;
-
     [Header("Debug"), SerializeField]
     bool isImmortal;
 
@@ -204,8 +230,8 @@ public class NewPlayerController : MonoBehaviour
         if (!isImmortal)
 #endif
         {
-            OnDeath.Invoke();
             StartCoroutine(DamageAnimationRoutine());
+            StartCoroutine(FrogRestartRoutine());
         }
 
         if (collision.tag == "tapioka")

@@ -21,7 +21,7 @@ public class TitleSceneManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene("StageSelect");
+            SceneManager.LoadScene("tutorial");
 
             // GetComponent<AudioSource>().Play();
             CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);

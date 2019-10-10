@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/FrogDeathCheck/FrogDeathCheck.unity
     guid: bc2021d8d6e81eb47b515b480d010c20
   - enabled: 1
-    path: Assets/StageSelect/GameCore.unity
+    path: Assets/GameCore/GameCore.unity
     guid: f70cf4edeec67ad4ca8e504015f9afc5
   m_configObjects: {}

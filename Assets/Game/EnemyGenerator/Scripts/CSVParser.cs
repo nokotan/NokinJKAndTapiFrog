@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSVParser : MonoBehaviour
+public class CSVParser : SingletonMonoBehaviour<CSVParser>
 {
     int SkippedCommandsNum;
 

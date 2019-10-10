@@ -4,14 +4,14 @@ using UnityEngine;
 
 #pragma warning disable 108
 
-public class ResultSceneManagement : SceneManagement
+public class ResultSceneManagement : DependentSceneManager
 {
     void Start()
     {
         ClearCountManager.CreateInstance().IncrementClearAndTrialCount(StageSelectManager.Instance.selectedStageIndex); 
     }
 
-    public override void ChangeScene(string sceneName)
+    public override void SwitchScene(string sceneName)
     {
         StageSelectManager.Instance.SwitchSubScene(sceneName);
     }
@@ -21,7 +21,7 @@ public class ResultSceneManagement : SceneManagement
     {
         if (Input.GetButtonDown("Submit"))
         {
-            ChangeScene();
+            StageSelectManager.Instance.SwitchSubScene("StageSelect");
             // GetComponent<AudioSource>().Play();
             CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
         }

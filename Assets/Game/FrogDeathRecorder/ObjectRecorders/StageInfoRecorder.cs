@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StageInfoRecorder : ObjectRecorderBase
 {
-    [SerializeField] CSVParser parser;
-    [SerializeField] TimeManager timeManager;
-
     [System.Serializable]
     public class StageInfoRecord
     {
@@ -28,8 +25,8 @@ public class StageInfoRecorder : ObjectRecorderBase
     {
         var record = new StageInfoRecord()
         {
-            StageFileName = parser.selectedStage,
-            ElapsedTime = timeManager.ElapsedTime
+            StageFileName = CSVParser.Instance.selectedStage,
+            ElapsedTime = TimeManager.Instance.ElapsedTime
         };
 
         return JsonUtility.ToJson(record);
