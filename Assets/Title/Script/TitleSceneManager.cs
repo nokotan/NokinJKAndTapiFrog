@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-#pragma warning disable 108
-
-public class TitleSceneManagement : SceneManagement
+/// <summary>
+/// タイトルシーンのシーン管理を行います
+/// </summary>
+public class TitleSceneManager : MonoBehaviour
 {
     [SerializeField] AudioClip mainBGM;
 
@@ -19,7 +21,8 @@ public class TitleSceneManagement : SceneManagement
     {
         if (Input.GetButtonDown("Submit"))
         {
-            ChangeScene();
+            SceneManager.LoadScene("StageSelect");
+
             // GetComponent<AudioSource>().Play();
             CrossSceneAudioPlayer.PlaySE(GetComponent<AudioSource>().clip);
         }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RuntimeInstantiator
   prefabs:
   - {fileID: 8467709373037220846, guid: 13e41ba2cb72449498a6ea0e90138e17, type: 3}
+  - {fileID: 5661051640567065216, guid: 2d1dd86cdf4c9af4bae27d14b961a6d7, type: 3}
