@@ -16,7 +16,23 @@ public class NewPlayerController : MonoBehaviour
     public Sprite FrogOnCeiling;
     public Sprite FrogOnLCeiling;
 
+    [SerializeField] Sprite[] DamageFrogAnimation;
+    bool isInDamageAnimation;
+
     AnalogInput input;
+
+    IEnumerator DamageAnimationRoutine()
+    {
+        isInDamageAnimation = true;
+
+        foreach (var sprite in DamageFrogAnimation)
+        {
+            MainSpriteRenderer.sprite = sprite;
+            yield return new WaitForSeconds(0.15f);
+        }
+
+        Destroy(gameObject);
+    }
 
     // Start is called befores the first frame update
     void Start()
@@ -29,6 +45,11 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ダメージエフェクト中はUpdate関数での更新はしない
+        if (isInDamageAnimation) {
+            return;
+        }
+
         Vector3 pos= transform.position;
         
     
@@ -184,11 +205,12 @@ public class NewPlayerController : MonoBehaviour
 #endif
         {
             OnDeath.Invoke();
+            StartCoroutine(DamageAnimationRoutine());
         }
 
         if (collision.tag == "tapioka")
         {
-            Debug.Log("衝突しました");
+            Debug.Log("衝突しました");            
         }
         else if (collision.tag == "Pinset")
         {
