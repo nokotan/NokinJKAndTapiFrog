@@ -5,12 +5,11 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// ゲーム画面でのシーン制御を行います
+/// ゲーム画面の管理とシーン制御を行います
 /// </summary>
 public class GameSceneManager : DependentSceneManager
 {
     [Header("Scene Specific")]
-    [SerializeField] string SubSceneName;
     [SerializeField] AudioClip mainBGM;
 
     /// <summary>
@@ -20,9 +19,10 @@ public class GameSceneManager : DependentSceneManager
     {
         CrossSceneAudioPlayer.ChangeBGM(mainBGM);
 
-        if (!SceneManager.GetSceneByName(SubSceneName).isLoaded)
+        if (!SceneManager.GetSceneByName("SubGame").isLoaded)
         {
-            SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op =>
+            // SubGame.scene が読み込まれていなければ読み込む
+            SceneManager.LoadSceneAsync("SubGame", LoadSceneMode.Additive).completed += op =>
             {
                 CSVParser.Instance.RestartEnemyGenerating();
             };
@@ -39,10 +39,10 @@ public class GameSceneManager : DependentSceneManager
     void OnDestroy()
     {
         CrossSceneAudioPlayer.StopBGM();
-        SceneManager.UnloadSceneAsync(SubSceneName);
+        SceneManager.UnloadSceneAsync("SubGame");
     }
 
-    public override void SwitchScene(string sceneName)
+    public void SwitchScene(string sceneName)
     {
         StageSelectManager.Instance.SwitchSubScene(sceneName);
     }
@@ -52,9 +52,9 @@ public class GameSceneManager : DependentSceneManager
     /// </summary>
     public void ReloadScene()
     {     
-        SceneManager.UnloadSceneAsync(SubSceneName).completed += op1 =>
+        SceneManager.UnloadSceneAsync("SubGame").completed += op1 =>
         {
-            SceneManager.LoadSceneAsync(SubSceneName, LoadSceneMode.Additive).completed += op2 =>
+            SceneManager.LoadSceneAsync("SubGame", LoadSceneMode.Additive).completed += op2 =>
             {
                 CSVParser.Instance.RestartEnemyGenerating();
             };

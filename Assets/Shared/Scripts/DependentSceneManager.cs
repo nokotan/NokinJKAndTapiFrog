@@ -28,14 +28,5 @@ public class DependentSceneManager : MonoBehaviour
             SceneManager.LoadScene(m_DependingSceneName, LoadSceneMode.Additive);
         }
     }
-
-    /// <summary>
-    /// 指定したシーンへ切り替えます。
-    /// </summary>
-    /// <param name="sceneName"></param>
-    public virtual void SwitchScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 }
 

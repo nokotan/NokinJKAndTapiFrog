@@ -16,23 +16,21 @@ public class StageSelectUIControl : SingletonMonoBehaviour<StageSelectUIControl>
 
     [SerializeField] Text InfoWindow;
 
-    ClearCountManager clearData;
-
     // Start is called before the first frame update
     void Start()
     {     
         animator = GetComponentInChildren<StageSelectAnimationControl>();
         selectedStageMax = animator.selectedStageMax;
 
-        clearData = ClearCountManager.CreateInstance();
-        clearData.Load();
-
         UpdateInfoWindow();
     }
 
+    /// <summary>
+    /// ステージごとのクリア率を更新します
+    /// </summary>
     void UpdateInfoWindow()
     {
-        var stageClearData = clearData.GetStageClearCount(selectedStage);
+        var stageClearData = ClearCountManager.Instance.GetStageClearCount(selectedStage);
 
         if (stageClearData == null || stageClearData.TotalTrialCount == 0)
         {

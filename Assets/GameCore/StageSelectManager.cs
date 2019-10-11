@@ -61,6 +61,11 @@ public class StageSelectManager : SingletonMonoBehaviour<StageSelectManager>
     public bool[] clearedStageProgress => m_ClearedStageProgress;
 
     /// <summary>
+    /// 前回クリアされたステージ
+    /// </summary>
+    public int? previousClearedStageIndex { get; set; }
+
+    /// <summary>
     /// このコンポーネントによって管理されるサブシーン
     /// シーン切り替えのために使います
     /// </summary>
