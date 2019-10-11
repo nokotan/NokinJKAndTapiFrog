@@ -38,7 +38,7 @@ public class StageSelectUIControl : SingletonMonoBehaviour<StageSelectUIControl>
         }
         else
         {
-            var ratio = stageClearData.TotalClearCount / stageClearData.TotalTrialCount * 100.0f;
+            var ratio = stageClearData.TotalClearCount * 100.0f / stageClearData.TotalTrialCount;
             InfoWindow.text = $"Clear Rate: {ratio.ToString("F2")}% ({stageClearData.TotalClearCount}/{stageClearData.TotalTrialCount})";
         }
     }

@@ -114,7 +114,7 @@ public class ClearCountManager : SingletonMonoBehaviour<ClearCountManager>
 
         if (storedData != null)
         {
-            storedData.TotalClearCount++;
+            storedData.TotalTrialCount++;
         }
         else
         {
