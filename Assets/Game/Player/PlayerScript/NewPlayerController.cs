@@ -226,7 +226,7 @@ public class NewPlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-#if DEBUG
+#if DEBUG || true
         if (!isImmortal)
 #endif
         {
