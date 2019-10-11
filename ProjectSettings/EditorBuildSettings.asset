@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/SubGame.unity
     guid: d7552ed6079970c49b383439722df487
+  - enabled: 1
+    path: Assets/Debugger/Debugger.unity
+    guid: 450d1d4acb224e149a6266e9463c93a9
   m_configObjects: {}
