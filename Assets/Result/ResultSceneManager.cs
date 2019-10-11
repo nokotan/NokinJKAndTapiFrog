@@ -38,7 +38,7 @@ public class ResultSceneManager : DependentSceneManager
         {
             if (HasAllCleared())
             {
-                SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("StaffCredit");
             }
             else
             {
