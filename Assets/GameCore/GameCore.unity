@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SelectedStagePath: 
-  m_SelectedStageIndex: 0
+  m_SelectedStageIndex: 1
   m_ClearedStageProgress: 0000000000
   m_DefaultScene: StageSelect
 --- !u!4 &623626686

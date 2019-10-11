@@ -34,8 +34,12 @@ public class StageSelectSceneManager : DependentSceneManager
     {
         if (Input.GetButtonDown("Submit"))
         {
-            SetStageIndexAndPath();
-            StageSelectManager.Instance.SwitchSubScene("Game");
+            if (!StageSelectManager.Instance.clearedStageProgress[StageSelectUIControl.Instance.SelectedStage - 1])
+            {
+                SetStageIndexAndPath();
+                StageSelectManager.Instance.SwitchSubScene("Game");
+            }
+            
             CrossSceneAudioPlayer.PlaySE(SystemSE);
         }
     }

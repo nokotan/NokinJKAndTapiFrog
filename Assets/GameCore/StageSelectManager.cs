@@ -27,7 +27,7 @@ public class StageSelectManager : SingletonMonoBehaviour<StageSelectManager>
         }
     }
 
-    [SerializeField] int m_SelectedStageIndex;
+    [SerializeField] int m_SelectedStageIndex = 1;
 
     /// <summary>
     /// 現在選択されているステージの番号
