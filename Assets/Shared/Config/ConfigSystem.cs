@@ -38,6 +38,11 @@ public class ConfigSystem
     public FrogDeathDatabaseConfig FrogDeathDatabase;
     public ClearCountDatabaseConfig ClearCountDatabase;
 
+    ~ConfigSystem()
+    {
+        File.WriteAllText($"{Application.streamingAssetsPath}/Config.json", JsonUtility.ToJson(this), Encoding.UTF8);
+    }
+
     static ConfigSystem m_Instance;
 
     public static ConfigSystem Instance

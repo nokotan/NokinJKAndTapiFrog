@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Game/Game.unity
     guid: 023816534bc952446859ec99dcac74f4
   - enabled: 1
-    path: Assets/Game/SubGame.unity
-    guid: d7552ed6079970c49b383439722df487
-  - enabled: 1
     path: Assets/Result/Result.unity
     guid: bfad8717a2ed26441a2990a5f90a595c
   - enabled: 1
@@ -30,12 +27,15 @@ EditorBuildSettings:
     path: Assets/FrogDeathCheck/FrogDeathCheck.unity
     guid: bc2021d8d6e81eb47b515b480d010c20
   - enabled: 1
-    path: Assets/GameCore/GameCore.unity
-    guid: f70cf4edeec67ad4ca8e504015f9afc5
-  - enabled: 1
     path: Assets/PVScene/DemoPlay.unity
     guid: 8feb62baeb338714dbc465cb42f1cf88
   - enabled: 1
     path: Assets/StaffCredit/StaffCredit.unity
     guid: f8a8555b3e54b7346849a8ff7e4aefbc
+  - enabled: 1
+    path: Assets/GameCore/GameCore.unity
+    guid: f70cf4edeec67ad4ca8e504015f9afc5
+  - enabled: 1
+    path: Assets/Game/SubGame.unity
+    guid: d7552ed6079970c49b383439722df487
   m_configObjects: {}

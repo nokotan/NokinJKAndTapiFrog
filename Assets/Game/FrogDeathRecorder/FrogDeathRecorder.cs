@@ -68,4 +68,9 @@ public class FrogDeathRecorder : SingletonMonoBehaviour<FrogDeathRecorder>
     {
         return database.GetEntriesCount();
     }
+
+    public void ResetDeathData()
+    {
+        database.ClearAllEntries();
+    }
 }

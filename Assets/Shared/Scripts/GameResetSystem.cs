@@ -17,5 +17,13 @@ public class GameResetSystem : SingletonMonoBehaviour<GameResetSystem>
         {
             SceneManager.LoadScene("Title");
         }
+
+        if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.C))
+        {
+            if (!SceneManager.GetSceneByName("Debugger").IsValid())
+            {
+                SceneManager.LoadScene("Debugger", LoadSceneMode.Additive);
+            }
+        }
     }
 }

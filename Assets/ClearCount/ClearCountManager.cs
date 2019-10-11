@@ -138,4 +138,12 @@ public class ClearCountManager : SingletonMonoBehaviour<ClearCountManager>
         // もし登録があれば取り出し、登録がなければ null を返す
         return databaseEntry.StoredData.FirstOrDefault(item => item.StageIndex == StageIndex);
     }
+
+    /// <summary>
+    /// ステージのクリア状況を消去します
+    /// </summary>
+    public void ResetClearData()
+    {
+        databaseEntry.StoredData.Clear();
+    }
 }
